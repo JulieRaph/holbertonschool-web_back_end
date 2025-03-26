@@ -21,6 +21,7 @@ module.exports = {
       'no-console': 'off',
       'no-shadow': 'off',
       'no-underscore-dangle': 'off',
+      'max-classes-per-file': ['error', 2],
       'no-restricted-syntax': [
         'error',
         'LabeledStatement',
