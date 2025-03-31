@@ -1,7 +1,7 @@
 {
     "scripts": {
         "lint": "./node_modules/.bin/eslint .",
-        "check-lint": "./node_modules/.bin/eslint . --fix",
+        "check-lint": "./node_modules/.bin/eslint . --fix --ignore-pattern '**/*main.js'",
         "dev": "npx babel-node",
         "test": "jest",
         "full-test": "./node_modules/.bin/eslint *.js && jest"
