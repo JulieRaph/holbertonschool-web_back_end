@@ -7,12 +7,11 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
   return Promise.allSettled([promise1, promise2])
     .then((results) => {
       const response = [];
-      results.forEach((result) => {
-        if (result.status === 'fulfilled') {
-          response.push({ status: 'fulfilled', value: result.value });
-        } else if (result.status === 'rejected') {
-          response.push({ status: 'rejected', value: result.reason });
-        }
+      results.forEach((promise) => {
+        response.push({
+          status: promise.status,
+          value: promise.value === 'filfilled' ? promise.value : `${promise.raison.name}: ${promise.raison.message}`,
+        });
       });
       return response;
     });
