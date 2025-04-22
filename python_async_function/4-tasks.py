@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """
+Module to call task_wait_random and generate a new asyncio.Task
 """
 import asyncio
 from typing import List
