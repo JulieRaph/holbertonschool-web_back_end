@@ -1,4 +1,4 @@
-#!/user/bin/env python3
+#!/usr/bin/env python3
 """
 Module providing a function that take a float multiplier
 as argument and return the float multiplied
