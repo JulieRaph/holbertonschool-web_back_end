@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Module to providing """
+"""
+Module to providing to paginate
+the dataset correctly and return the
+appropriate page of the dataset
+"""
 import csv
 import math
 from typing import List, Tuple
