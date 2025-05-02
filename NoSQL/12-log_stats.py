@@ -25,7 +25,7 @@ def logs_stats(mongo_collection):
     print("Methods:")
     methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
     for method in methods:
-        count = mongo_collection.count_documents({"methods": method})
+        count = mongo_collection.count_documents({"method": method})
         print(f"\tmethod {method}: {count}")
 
     status_check = mongo_collection.count_documents(

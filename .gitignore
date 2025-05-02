@@ -74,3 +74,5 @@ NoSQL/__pycache__/9-insert_school.cpython-310.pyc
 NoSQL/10-main.py
 NoSQL/11-main.py
 NoSQL/dump.zip
+NoSQL/dump/logs/nginx.bson
+NoSQL/dump/logs/nginx.metadata.json
