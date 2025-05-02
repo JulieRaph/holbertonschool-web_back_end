@@ -69,3 +69,5 @@ pagination/3-main.py
 pagination/__pycache__/3-hypermedia_del_pagination.cpython-310.pyc
 NoSQL/8-main.py
 NoSQL/__pycache__/8-all.cpython-310.pyc
+NoSQL/9-main.py
+NoSQL/__pycache__/9-insert_school.cpython-310.pyc
