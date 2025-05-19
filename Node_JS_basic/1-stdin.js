@@ -12,5 +12,5 @@ process.stdin.on('readable', () => {
 });
 
 process.stdin.on('end', () => {
-  process.stdout.write('This important software is now closing');
+  console.log('This important software is now closing');
 });
