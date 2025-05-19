@@ -1,4 +1,4 @@
-// Use the function displayMessage to print a message to the console
+// Use displayMessage function to print a message to the console.
 const displayMessage = (message) => {
   console.log(message);
 };
