@@ -76,3 +76,4 @@ NoSQL/11-main.py
 NoSQL/dump.zip
 NoSQL/dump/logs/nginx.bson
 NoSQL/dump/logs/nginx.metadata.json
+Node_JS_basic/*-main.js
