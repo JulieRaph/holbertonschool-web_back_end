@@ -22,7 +22,8 @@ async function countStudents(path) {
         firstname, lastname, age, field,
       };
     }).filter((student) => student !== null); // Filter out null values
-    console.log(`Number os students: ${students.length}`);
+
+    let output = `Number of students: ${students.length}\n`; // Initialize output string
     const fields = students.reduce((acc, student) => {
       if (!acc[student.field]) {
         acc[student.field] = [];
@@ -32,10 +33,12 @@ async function countStudents(path) {
     }, {});
     for (const field in fields) {
       if (fields[field].length > 0) {
-        console.log(`Number of students: ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}`);
+        output += `Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}\n`; // Append to output string
       }
     }
+    return output.trim(); // Return the accumulated string
   } catch (error) {
+    // If an error occurs (e.g., file not found), throw a new error
     throw new Error('Cannot load the database');
   }
 }
