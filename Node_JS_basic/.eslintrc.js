@@ -27,7 +27,6 @@ module.exports = {
       'LabeledStatement',
       'WithStatement',
     ],
-    'prefer-regex-literals': 'warn',
   },
   overrides:[
     {
