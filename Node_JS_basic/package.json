@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint",
+    "lint": "./node_modules/.bin/eslint .",
     "check-lint": "./node_modules/.bin/eslint [0-9]*.js",
-    "format": "./node_modules/.bin/eslint --fix",
+    "format": "./node_modules/.bin/eslint --fix .",
     "test": "./node_modules/mocha/bin/mocha --require babel-register --exit",
     "dev": "nodemon --exec babel-node --presets babel-preset-env ./server.js ./database.csv"
   },
@@ -25,7 +25,6 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jest": "^22.21.0",
-    "lint": "*",
     "mocha": "^6.2.3",
     "nodemon": "^2.0.22",
     "request": "^2.88.2",
