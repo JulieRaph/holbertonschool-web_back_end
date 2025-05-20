@@ -8,4 +8,4 @@ app.get('/', (req, res) => {
 });
 app.listen(1245); // Start the server on port 1245
 
-module.exports = app; // Export the app instance
+module.exports = app;; // Export the app instance
