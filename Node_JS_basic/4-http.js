@@ -9,4 +9,4 @@ const app = http.createServer((req, res) => {
 }); // Create the server
 app.listen = 1245;
 
-module.exports = app;; // Export the app
+module.exports = app; // Export the app
