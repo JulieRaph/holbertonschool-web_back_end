@@ -10,11 +10,12 @@ app.get('/', (req, res) => {
   res.send('Hello Holberton School!');
 });
 app.get('/students', (req, res) => {
-  countStudents(process.argv[2])
+  const data = process.argv[2];
+  countStudents(data)
     .then((data) => {
       res.statusCode = 200;
       res.setHeader('Content-type', 'text/plain');
-      res.send('This is the list of our students\n');
+      res.send(`This is the list of our students\n'${data}`);
     })
     .catch((error) => {
       res.statusCode = 500;
