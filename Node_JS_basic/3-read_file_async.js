@@ -1,4 +1,4 @@
-const fs = require('fs').promises;
+const fs = require('fs').promises; // For TEST
 
 const countStudents = async (filePath) => {
   try {
@@ -16,7 +16,7 @@ const countStudents = async (filePath) => {
       };
     });
 
-    console.log(`Number of students: ${students.length}`);
+    let output = `Number of students: ${students.length}\n`;
 
     const fields = students.reduce((acc, student) => {
       if (!acc[student.field]) {
@@ -28,19 +28,11 @@ const countStudents = async (filePath) => {
 
     for (const field in fields) {
       if (Object.prototype.hasOwnProperty.call(fields, field)) {
-        console.log(`Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}`);
-      }
-    }
-
-    // Construire la sortie comme avant pour le serveur
-    let output = `Number of students: ${students.length}\n`;
-    for (const field in fields) {
-      if (Object.prototype.hasOwnProperty.call(fields, field)) {
         output += `Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}\n`;
       }
     }
 
-    return output.trim(); // Toujours retourner la chaîne formatée pour le serveur
+    return output.trim();
   } catch (error) {
     throw new Error('Cannot load the database');
   }
