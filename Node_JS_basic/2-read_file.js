@@ -9,7 +9,7 @@ const fs = require('fs');
 function countStudents(path) {
   try {
     const data = fs.readFileSync(path, 'utf-8'); // Read the file synchronously and put the data in a variable
-    const lines = data.split('\n'); // Divide the data into lines
+    const lines = data.trim().split('\n'); // Divide the data into lines
     if (lines.length < 2) { // Check if the line is empty or has only one line
       throw new Error('Cannot load the database');
     }
