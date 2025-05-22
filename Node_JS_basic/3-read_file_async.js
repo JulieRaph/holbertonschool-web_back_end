@@ -1,29 +1,23 @@
-// This module to create a program that reads from a CSV file and write to standard output
+const fs = require('fs').promises;
 
-const fs = require('fs').promises; // Import the fs module with promises
-
-// This module exports a function that counts the number of students in a CSV file
-// and prints the number of students in each field
-// The function takes a file path as an argument
-
-async function countStudents(path) {
+const countStudents = async (filePath) => {
   try {
-    const data = await fs.readFile(path, 'utf-8'); // Read the file asynchronously and put the data in a variable
-    const lines = data.split('\n'); // Divide the data into lines
-    if (lines.length < 2) { // Check if the line is empty or has only one line
+    const data = await fs.readFile(filePath, 'utf8');
+    const lines = data.trim().split('\n');
+
+    if (lines.length <= 1) {
       throw new Error('Cannot load the database');
     }
+
     const students = lines.slice(1).map((line) => {
-      if (line.trim() === '') {
-        return null;
-      }
       const [firstname, lastname, age, field] = line.split(',');
       return {
         firstname, lastname, age, field,
       };
-    }).filter((student) => student !== null); // Filter out null values
+    });
 
-    let output = `Number of students: ${students.length}\n`; // Initialize output string
+    console.log(`Number of students: ${students.length}`);
+
     const fields = students.reduce((acc, student) => {
       if (!acc[student.field]) {
         acc[student.field] = [];
@@ -31,15 +25,25 @@ async function countStudents(path) {
       acc[student.field].push(student.firstname);
       return acc;
     }, {});
+
     for (const field in fields) {
-      if (fields[field].length > 0) {
-        output += `Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}\n`; // Append to output string
+      if (Object.prototype.hasOwnProperty.call(fields, field)) {
+        console.log(`Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}`);
       }
     }
-    return output.trim(); // Return the accumulated string
+
+    // Construire la sortie comme avant pour le serveur
+    let output = `Number of students: ${students.length}\n`;
+    for (const field in fields) {
+      if (Object.prototype.hasOwnProperty.call(fields, field)) {
+        output += `Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}\n`;
+      }
+    }
+
+    return output.trim(); // Toujours retourner la chaîne formatée pour le serveur
   } catch (error) {
-    // If an error occurs (e.g., file not found), throw a new error
     throw new Error('Cannot load the database');
   }
-}
+};
+
 module.exports = countStudents;
